@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="279.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Order">
+<AnchorPane prefHeight="279.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <Button layoutX="373.0" layoutY="245.0" mnemonicParsing="false" text="löschen" AnchorPane.bottomAnchor="8.399999999999999" AnchorPane.rightAnchor="24.19999999999999" AnchorPane.topAnchor="245.0" />
       <Button layoutX="278.0" layoutY="245.0" mnemonicParsing="false" text="speichern" AnchorPane.bottomAnchor="8.399999999999999" AnchorPane.rightAnchor="108.80000000000001" AnchorPane.topAnchor="245.0" />
