@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.DropdownButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <DropdownButton layoutX="24.0" layoutY="43.0">
+          <items>
+              <MenuItem text="wähl aus" />
+              <MenuItem text="name" />
+              <MenuItem text="title" />
+            <MenuItem text="street" />
+            <MenuItem text="zip" />
+            <MenuItem text="city" />
+            <MenuItem text="country" />
+          </items>
+      </DropdownButton>
+      <Button layoutX="30.0" layoutY="331.0" mnemonicParsing="false" onAction="#nameAdd" prefHeight="35.0" prefWidth="118.0" text="hinzufügen" />
+      <Button layoutX="173.0" layoutY="331.0" mnemonicParsing="false" onAction="#nameDelete" prefHeight="35.0" prefWidth="118.0" text=" löschen" />
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="users" />
+      <TextField layoutX="167.0" layoutY="44.0" promptText="eingeben" />
+   </children>
+</AnchorPane>

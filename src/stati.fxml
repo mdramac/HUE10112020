@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <TextField fx:id="nameTextfield" layoutX="22.0" layoutY="49.0" promptText="name" />
+      <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="stati" />
+      <Button layoutX="202.0" layoutY="49.0" mnemonicParsing="false" onAction="#nameAdd" text="name hinzufügen" />
+      <Button layoutX="328.0" layoutY="49.0" mnemonicParsing="false" onAction="#nameDelete" text="name löschen" />
+   </children>
+</AnchorPane>

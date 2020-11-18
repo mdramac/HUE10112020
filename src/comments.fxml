@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <TextField fx:id="titleField" layoutX="28.0" layoutY="38.0" promptText="title" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="38.0" />
+      <TextField fx:id="textField" layoutX="28.0" layoutY="81.0" promptText="text" />
+      <Button layoutX="218.0" layoutY="38.0" mnemonicParsing="false" onAction="#titleAdd" text="Titel hinzufügen" AnchorPane.topAnchor="38.0" />
+      <Button layoutX="344.0" layoutY="38.0" mnemonicParsing="false" onAction="#titleDelete" text="Titel löschen" AnchorPane.topAnchor="38.0" />
+      <Button layoutX="219.0" layoutY="81.0" mnemonicParsing="false" onAction="#textAdd" text="Text hinzufügen" />
+      <Button layoutX="345.0" layoutY="81.0" mnemonicParsing="false" onAction="#textDelete" text="Text löschen" />
+      <TextField fx:id="dataTextfield" layoutX="28.0" layoutY="130.0" promptText="creation data" />
+      <Button layoutX="217.0" layoutY="130.0" mnemonicParsing="false" onAction="#dataAdd" text="data hinzufügen" />
+      <Button layoutX="344.0" layoutY="130.0" mnemonicParsing="false" onAction="#dataDelete" text="data löschen" />
+   </children>
+</AnchorPane>
