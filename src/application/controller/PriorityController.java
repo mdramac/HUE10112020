@@ -14,6 +14,7 @@ public class PriorityController {
     public ListView<Priority> priorityListview;
     public TextField priorityTextfield;
     ObservableList<Priority> list = FXCollections.observableArrayList();
+    private int number = 0;
 
     private Priority selectedPriority = null;
 
@@ -36,6 +37,7 @@ public class PriorityController {
                     String[] words = s.split(";");
                     a.number = words[0];
                     a.name = words[1];
+                    number = Integer.parseInt(words[0]) ;
 
                     list.add(a); // füge Artikel zur Liste hinzu
                 }
@@ -78,7 +80,7 @@ public class PriorityController {
             Priority a = new Priority();
 
             a.name = priorityTextfield.getText();
-
+            a.number = Integer.toString(number + 1);
 
             list.add(a);
             // erzeuge neuen Artikel, füge ihn in die ListView ein
