@@ -28,8 +28,6 @@ public class PriorityController {
         try {
             br = new BufferedReader(new FileReader(file));
             try {
-                br.readLine(); // ignoriere die erste Zeile => Überschriften
-
                 while ((s = br.readLine()) != null) {
                     // s enthält die gesamte Zeile
                     s = s.replace("\"", ""); // ersetze alle " in der Zeile
@@ -92,7 +90,7 @@ public class PriorityController {
 
     private void fileWriter() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("artikel.csv"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("priorities.csv"));
 
             for (Priority a : list) {
                 bw.write(a.newCSVLine());
