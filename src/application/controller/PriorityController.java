@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.*;
 
 public class PriorityController {
-    public ListView<Priority> priorityListview;
+    public ListView<Priority> priorityListView;
     public TextField priorityTextfield;
     ObservableList<Priority> list = FXCollections.observableArrayList();
     private int number = 0;
@@ -47,10 +47,10 @@ public class PriorityController {
         } catch (IOException io) {
         }
 
-        priorityListview.setItems(list);
+        priorityListView.setItems(list);
     }
     public void listclicked(MouseEvent mouseEvent) {
-        Priority selected = priorityListview.getSelectionModel().getSelectedItem();
+        Priority selected = priorityListView.getSelectionModel().getSelectedItem();
 
         if (selected != null) {
             this.selectedPriority = selected;
@@ -75,7 +75,7 @@ public class PriorityController {
 
             selectedPriority.name = priorityTextfield.getText();
 
-            priorityListview.refresh();
+            priorityListView.refresh();
         } else {
             Priority a = new Priority();
 
@@ -107,10 +107,10 @@ public class PriorityController {
     }
 
     public void deleteClicked(ActionEvent actionEvent) {
-        Priority selected = priorityListview.getSelectionModel().getSelectedItem();
+        Priority selected = priorityListView.getSelectionModel().getSelectedItem();
 
         list.remove(selected);
-        priorityListview.refresh();
+        priorityListView.refresh();
 
         fileWriter();
     }
