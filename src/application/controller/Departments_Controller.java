@@ -1,7 +1,7 @@
 package application.controller;
 
 import application.model.Department;
-import application.model.Priorities;
+import application.model.Priority;
 import application.model.Status;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +26,7 @@ public class Departments_Controller {
             FXCollections.observableArrayList();
 
     public File datei = new File("departments.csv");
+    public TextField departmentTextfield;
 
     public void initialize() {
 
