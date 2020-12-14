@@ -1,5 +1,13 @@
 package application.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Status {
     public String number;
     public String name;
@@ -11,4 +19,32 @@ public class Status {
         return number + "\";\"" + name + "\";\"";
     }
 
+    public  static ObservableList<Status> load(String file) {
+        ObservableList<Status> list = FXCollections.observableArrayList();
+        String s;
+        BufferedReader br = null;
+
+        try {
+            br = new BufferedReader(new FileReader(file));
+            try {
+                while ((s = br.readLine()) != null) {
+                    // s enthält die gesamte Zeile
+                    s = s.replace("\"", ""); // ersetze alle " in der Zeile
+                    Status a = new Status();
+
+                    String[] words = s.split(";");
+                    a.number = words[0];
+                    a.name = words[1];
+
+
+                    list.add(a); // füge Artikel zur Liste hinzu
+                }
+            } finally {
+                br.close();
+            }
+        } catch (IOException io) {
+        }
+
+        return  list;
+    }
 }

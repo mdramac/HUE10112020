@@ -21,37 +21,10 @@ public class StatusController {
     private Status selectedStati = null;
 
     public void initialize() {
-        load(new File("stati.csv"));
+        statiListView.setItems(Status.load("stati.csv"));
     }
 
-    private void load(File file) {
 
-            String s;
-            BufferedReader br = null;
-
-            try {
-                br = new BufferedReader(new FileReader(file));
-                try {
-                    while ((s = br.readLine()) != null) {
-                        // s enthält die gesamte Zeile
-                        s = s.replace("\"", ""); // ersetze alle " in der Zeile
-                        Status a = new Status();
-
-                        String[] words = s.split(";");
-                        a.number = words[0];
-                        a.name = words[1];
-                        number = Integer.parseInt(words[0]) ;
-
-                        list.add(a); // füge Artikel zur Liste hinzu
-                    }
-                } finally {
-                    br.close();
-                }
-            } catch (IOException io) {
-            }
-
-            statiListView.setItems(list);
-        }
 
 
     public void listclicked(MouseEvent mouseEvent) {

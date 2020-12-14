@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.model.Department;
+import application.model.Priority;
 import application.model.Status;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,32 +30,8 @@ public class Departments_Controller {
     public TextField departmentTextfield;
 
     public void initialize() {
+        listViewDepartments.setItems(Department.load("departments.csv"));
 
-        departmentList.clear();
-
-        String row;
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(datei));
-            try {
-                while ((row = br.readLine()) != null) {
-                    String[] data = row.split(";");
-                    Department b = new Department();
-
-                    b.number = data[0];
-                    b.name = data[1];
-                    departmentList.add(b);
-                }
-            } finally {
-                if (br != null) {
-                    br.close();
-                }
-            }
-        } catch (IOException io) {
-            System.out.println(io.getMessage());
-        }
-
-        listViewDepartments.setItems(departmentList);
     }
 
 
