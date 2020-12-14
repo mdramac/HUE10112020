@@ -38,8 +38,9 @@ public class Controller {
         Parent root=  loader.loadFXML("view/ticket.fxml");
         contentPane.getChildren().add(root);
 
+
         ControllerTickets controller = (ControllerTickets) loader.getController();
+
     }
 
-//wichtig über git arbeite, gleich blaues pfeil drücken
 }
