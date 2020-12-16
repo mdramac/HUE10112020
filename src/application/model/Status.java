@@ -11,6 +11,7 @@ import java.io.IOException;
 public class Status {
     public String number;
     public String name;
+    public Object id;
 
     @Override
     public String toString() { return number + " - " +  name;}
