@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Priority {
+    public int id;
     public String number;
     public String name;
 
@@ -36,6 +37,7 @@ public class Priority {
 
                     String[] words = s.split(";");
                     a.number = words[0];
+                    a.id = Integer.parseInt(a.number);
                     a.name = words[1];
 
                     list.add(a); // füge Artikel zur Liste hinzu

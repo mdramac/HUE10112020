@@ -15,6 +15,8 @@ public class ticket {
     public String ticketDes;
     public String status;
     public String priority;
+    public int id;
+    public int ide;
 
     @Override
     public String toString() { return number + " - " +  name;}
@@ -39,7 +41,9 @@ public class ticket {
                     b.name = data[1];
                     b.ticketDes = data[2];
                     b.status = data[3];
+                    b.id = Integer.parseInt(b.status);
                     b.priority = data[4];
+                    b.ide = Integer.parseInt(b.priority);
 
                     list.add(b);
                 }

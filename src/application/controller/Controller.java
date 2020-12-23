@@ -1,11 +1,14 @@
 package application.controller;
 
 import application.MyFXMLLoader;
+import application.model.Status;
 import application.model.ticket;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -13,8 +16,14 @@ public class Controller {
     public ListView<StatusController> statiList;
     public ListView<ticket> listVIew;
     public AnchorPane contentPane;
+    public ComboBox filterPriority;
+    public ComboBox filterStatus;
 
     private ControllerTickets active = null;
+
+    public void initialize() {
+        listVIew.setItems(ticket.load("todo.csv"));
+    }
 
     public void editStaticlicked(ActionEvent actionEvent) {
         MyFXMLLoader loader = new MyFXMLLoader();
@@ -69,5 +78,14 @@ public class Controller {
     public void saveClicked(ActionEvent actionEvent) {
         //Wenn Ticker new -> Lden des Tickets unf hinzufügen zur Liste!
         //Datei aktualisieren
+    }
+
+    public void filterTyped(KeyEvent keyEvent) {
+    }
+
+    public void filterStatusClicked(ActionEvent actionEvent) {
+    }
+
+    public void filterPriorityClicked(ActionEvent actionEvent) {
     }
 }

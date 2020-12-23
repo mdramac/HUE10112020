@@ -4,14 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class Status {
-    public String number;
+    public int id;
+    public  String number;
     public String name;
-    public Object id;
+
 
     @Override
     public String toString() { return number + " - " +  name;}
@@ -35,6 +35,7 @@ public class Status {
 
                     String[] words = s.split(";");
                     a.number = words[0];
+                    a.id = Integer.parseInt(a.number);
                     a.name = words[1];
 
 

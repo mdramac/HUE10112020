@@ -1,5 +1,7 @@
 package application.controller;
 
+import application.model.Department;
+import application.model.Priority;
 import application.model.Status;
 import application.model.User;
 import javafx.collections.FXCollections;
@@ -12,10 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class User_Controller {
     public ListView<User> listViewUser;
@@ -29,8 +28,10 @@ public class User_Controller {
     public TextField userStreet;
     public TextField userPlz;
     public TextField userOrt;
-    public ComboBox userDepartment;
+    public ComboBox<Department> userDepartment;
     private User selectedUser = null;
+    private Department d;
+
 
 
     public void initialize() {
@@ -39,6 +40,29 @@ public class User_Controller {
 
 
     public void saveClicked(ActionEvent actionEvent) {
+        if (this.selectedUser != null) {
+
+
+            selectedUser.name = username.getText();
+
+            listViewUser.refresh();
+        } else {
+            User b = new User();
+
+            b.number = Integer.parseInt(username.getText());
+            b.titel = userTitel.getText();
+            b.name = username.getText();
+            b.strase = userStreet.getText();
+            b.plz = Integer.parseInt(userPlz.getText());
+            b.ort = userOrt.getText();
+
+            //b.abteilung = Integer.parseInt(userDepartment.getItems());
+
+            list.add(b);
+
+        }
+
+        fileWriter();
     }
 
     public void cancelClicked(ActionEvent actionEvent) {
@@ -58,6 +82,21 @@ public class User_Controller {
             userPlz.setText(String.valueOf(selected.plz));
             userStreet.setText(selected.strase);
             //userDepartment.setPlaceholder(String.valueOf(selected.abteilung);
+        }
+    }
+
+    private void fileWriter() {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("users.csv"));
+
+            for (User a : list) {
+                bw.write(a.newCSVLine());
+            }
+            bw.flush();
+            bw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

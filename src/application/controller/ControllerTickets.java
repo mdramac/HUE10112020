@@ -2,17 +2,17 @@ package application.controller;
 
 import application.model.Priority;
 import application.model.Status;
+import application.model.User;
 import application.model.ticket;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
 import java.io.File;
 
 public class ControllerTickets {
+    public ListView<ticket> lisTicket;
     public TextField textfieldName;
     public ComboBox<Status> boxStati;
     public ComboBox<Priority> boxPriority;
@@ -27,8 +27,7 @@ public class ControllerTickets {
     public File datei = new File("tickets.csv");
 
     public void initialize() {
-
-
+        lisTicket.setItems(ticket.load("todo.csv"));
     }
     public void buttonClicked(ActionEvent actionEvent) {
 
@@ -45,16 +44,16 @@ public class ControllerTickets {
         boxPriority.setItems(Priority.load("priorities.csv"));
 
         for (Status s : boxStati.getItems()){
-            if(s.id == t.status.id){
+            if(s.id == t.id){
                 boxStati.getSelectionModel().select(s);
-                break;;
+                break;
             }
         }
 
         for (Priority p : boxPriority.getItems()){
-            if(s.id == t.priority.id){
+            if(p.id == t.ide){
                 boxPriority.getSelectionModel().select(p);
-                break;;
+                break;
             }
         }
 
