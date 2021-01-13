@@ -35,7 +35,10 @@ public class User_Controller {
 
 
     public void initialize() {
+
         listViewUser.setItems(User.load("users.csv"));
+        userDepartment.setItems(Department.load("departments.csv"));
+
     }
 
 

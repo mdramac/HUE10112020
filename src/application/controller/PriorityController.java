@@ -22,7 +22,7 @@ public class PriorityController {
 
     public void initialize() {
 
-        priorityListView.setItems(Priority.load("priorities.csv"));
+        priorityListView.setItems(Priority.load());
     }
 
 

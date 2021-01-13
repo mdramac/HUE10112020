@@ -8,6 +8,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Priority {
     public int id;
@@ -21,32 +25,26 @@ public class Priority {
         return number + "\";\"" + name + "\";\"";
     }
 
-    public  static ObservableList<Priority> load(String file) {
+    public  static ObservableList<Priority> load() {
         ObservableList<Priority> list = FXCollections.observableArrayList();
 
-        String s;
-        BufferedReader br = null;
-
         try {
-            br = new BufferedReader(new FileReader(file));
-            try {
-                while ((s = br.readLine()) != null) {
-                    // s enthält die gesamte Zeile
-                    s = s.replace("\"", ""); // ersetze alle " in der Zeile
-                    Priority a = new Priority();
+            Connection connection = AccessDb.getConnection();
 
-                    String[] words = s.split(";");
-                    a.number = words[0];
-                    a.id = Integer.parseInt(a.number);
-                    a.name = words[1];
+            Statement statement = null;
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM priorities");
 
-                    list.add(a); // füge Artikel zur Liste hinzu
-                }
-            } finally {
-                br.close();
+            while (result.next()){
+                Priority p = new Priority();
+                p.number = Integer.toString(result.getInt("priorties_id"));
+                p.name = result.getString("name");
+
+                list.add(p);
             }
-        } catch (IOException io) {
+        } catch (SQLException throwables) {
         }
+
         return list;
     }
 }

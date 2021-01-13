@@ -26,22 +26,14 @@ public class ControllerTickets {
             FXCollections.observableArrayList();
     public File datei = new File("tickets.csv");
 
-    public void initialize() {
-        lisTicket.setItems(ticket.load("todo.csv"));
-    }
-    public void buttonClicked(ActionEvent actionEvent) {
 
-    }
 
-    public void saveClicked(ActionEvent actionEvent) {
-
-    }
     public void setTicket(ticket t){
         this.ticket = t;
         textfieldName.setText((ticket.name));
         textArea.setText(ticket.ticketDes);
         boxStati.setItems(Status.load("stati.csv"));
-        boxPriority.setItems(Priority.load("priorities.csv"));
+        boxPriority.setItems(Priority.load());
 
         for (Status s : boxStati.getItems()){
             if(s.id == t.id){
