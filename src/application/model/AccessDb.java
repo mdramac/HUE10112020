@@ -24,7 +24,7 @@ public class AccessDb {
         if (connection == null){
             try{
 
-                connection= DriverManager.getConnection("jdbc:ucanaccess://C:/Schule/3AHITN_SEW/HUE10112020/db/Tickets_System.accdb");
+                connection= DriverManager.getConnection("jdbc:ucanaccess://db/Tickets_System.accdb");
 
             }catch (SQLException throwables){
 
