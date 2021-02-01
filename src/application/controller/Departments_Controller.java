@@ -30,7 +30,7 @@ public class Departments_Controller {
     public TextField departmentTextfield;
 
     public void initialize() {
-        listViewDepartments.setItems(Department.load("departments.csv"));
+        listViewDepartments.setItems(Department.load());
 
     }
 

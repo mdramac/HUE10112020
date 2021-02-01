@@ -36,9 +36,8 @@ public class User_Controller {
 
     public void initialize() {
 
-        listViewUser.setItems(User.load("users.csv"));
-        userDepartment.setItems(Department.load("departments.csv"));
-
+        listViewUser.setItems(User.load());
+        userDepartment.setItems(Department.load());
     }
 
 
@@ -49,10 +48,11 @@ public class User_Controller {
             selectedUser.name = username.getText();
 
             listViewUser.refresh();
+            selectedUser.update();
         } else {
             User b = new User();
 
-            b.number = Integer.parseInt(username.getText());
+            //b.number = Integer.parseInt(username.getText());
             b.titel = userTitel.getText();
             b.name = username.getText();
             b.strase = userStreet.getText();
@@ -101,5 +101,13 @@ public class User_Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteClicked(ActionEvent actionEvent) {
+        User selected = listViewUser.getSelectionModel().getSelectedItem();
+
+        listViewUser.getItems().remove(selected);
+        listViewUser.refresh();
+        selected.delete();
     }
 }

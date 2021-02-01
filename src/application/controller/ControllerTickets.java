@@ -32,7 +32,7 @@ public class ControllerTickets {
         this.ticket = t;
         textfieldName.setText((ticket.name));
         textArea.setText(ticket.ticketDes);
-        boxStati.setItems(Status.load("stati.csv"));
+        boxStati.setItems(Status.load());
         boxPriority.setItems(Priority.load());
 
         for (Status s : boxStati.getItems()){
@@ -43,7 +43,7 @@ public class ControllerTickets {
         }
 
         for (Priority p : boxPriority.getItems()){
-            if(p.id == t.ide){
+            if(Integer.parseInt(p.number) == t.ide){
                 boxPriority.getSelectionModel().select(p);
                 break;
             }

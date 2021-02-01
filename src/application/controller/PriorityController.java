@@ -51,8 +51,8 @@ public class PriorityController {
             // und speichere alles in die Datei
 
             selectedPriority.name = priorityTextfield.getText();
-
             priorityListView.refresh();
+            selectedPriority.update();
         } else {
             Priority a = new Priority();
 
@@ -85,11 +85,10 @@ public class PriorityController {
 
     public void deleteClicked(ActionEvent actionEvent) {
         Priority selected = priorityListView.getSelectionModel().getSelectedItem();
+        priorityTextfield.clear();
+        priorityListView.getItems().remove(selected);
+        selected.delete();
 
-        list.remove(selected);
-        priorityListView.refresh();
-
-        fileWriter();
     }
 
 

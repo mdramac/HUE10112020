@@ -21,7 +21,7 @@ public class StatusController {
     private Status selectedStati = null;
 
     public void initialize() {
-        statiListView.setItems(Status.load("stati.csv"));
+        statiListView.setItems(Status.load());
     }
 
 
@@ -50,6 +50,7 @@ public class StatusController {
             selectedStati.name = statiTextField.getText();
 
             statiListView.refresh();
+            selectedStati.update();
         } else {
             Status a = new Status();
 
@@ -82,9 +83,9 @@ public class StatusController {
     public void deleteClicked(ActionEvent actionEvent) {
         Status selected = statiListView.getSelectionModel().getSelectedItem();
 
-        list.remove(selected);
+        statiListView.getItems().remove(selected);
         statiListView.refresh();
+        selected.delete();
 
-        fileWriter();
     }
 }

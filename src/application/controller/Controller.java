@@ -32,7 +32,7 @@ public class Controller {
     public void initialize() {
         listVIew.setItems(ticket.load("todo.csv"));
         set.addAll(ticket.load("todo.csv" ));
-        filterStatus.setItems(Status.load("stati.csv"));
+        filterStatus.setItems(Status.load());
         filterPriority.setItems(Priority.load());
 
 
